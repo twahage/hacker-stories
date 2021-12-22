@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 
@@ -8,20 +7,20 @@ const App = () => {
 
   const stories = [
     {
-    title: 'React',
-    url: 'https://reactjs.org/',
-    author: 'Jordan Walke',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
+      title: 'React',
+      url: 'https://reactjs.org/',
+      author: 'Jordan Walke',
+      num_comments: 3,
+      points: 4,
+      objectID: 0,
     },
     {
-    title: 'Redux',
-    url: 'https://redux.js.org/',
-    author: 'Dan Abramov, Andrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
+      title: 'Redux',
+      url: 'https://redux.js.org/',
+      author: 'Dan Abramov, Andrew Clark',
+      num_comments: 2,
+      points: 5,
+      objectID: 1,
     },
   ];
 
@@ -61,9 +60,9 @@ const Search = ({search, onSearch}) => (
 );
 
 const List = ({ list }) =>
-  list.map(item => <Item key={item.objectID} item={item} />);
+  list.map( ({objectID, ...item}) => <Item key={objectID} {...item} />);
 
-const Item = ({ item: {title, url, author, num_comments, points} }) => (
+const Item = ( {title, url, author, num_comments, points} ) => (
   <div>
     <span>
       <a href={url}>{title}</a>
